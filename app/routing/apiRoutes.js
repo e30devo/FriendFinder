@@ -1,20 +1,18 @@
-
+const bodyParser = require("body-parser");
 const friends = require("../data/friends.js")
 
 module.exports = function (app) {
     
     app.get("/api/friends", function (req, res) {
-        res.json(friends);
-        console.log("1!", friends);
-        // res.json(res.body);
+        res.json(friends);                
     });
 
-    app.post("/api/friends", function (req, res) {
-        // console.log(req.body);
-        var friend = req.body;
-        console.log(friend);
+    app.post("/api/friends", function (req, res) {        
+        var friend = req.body
         friends.push(friend);
-        res.json(req.body)
+        res.json("Success!");
+        
     })
+    
 
 }
